@@ -3,18 +3,21 @@ iOS之线程睡眠以及唤醒特定线程
 
 ```objc
 dispatch_async(dispatch_get_global_queue(0, 0), ^{
-NSLog(@"one start");
-[BMSleep sleepForName:@"one"];
-NSLog(@"one end");
+    NSLog(@"one start");
+    [BMSleep sleepForName:@"one"];
+    NSLog(@"one end");
 });
+
 dispatch_async(dispatch_get_global_queue(0, 0), ^{
-NSLog(@"two start");
-[BMSleep sleepForName:@"two"];
-NSLog(@"two end");
+    NSLog(@"two start");
+    [BMSleep sleepForName:@"two"];
+    NSLog(@"two end");
 });
+
 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_global_queue(0, 0), ^{
-NSLog(@"%@",BMSleep.sleepNames);
+    NSLog(@"%@",BMSleep.sleepNames);
 });
+
 NSLog(@"main start");
 [BMSleep sleepForName:@"main" timeInterval:2];
 [BMSleep wakeUpForName:@"two"];
