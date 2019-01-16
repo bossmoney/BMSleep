@@ -1,5 +1,5 @@
 # BMSleep
-iOS之睡眠以及唤醒特定线程
+iOS之线程睡眠以及唤醒特定线程
 
 ```objc
 dispatch_async(dispatch_get_global_queue(0, 0), ^{
