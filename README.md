@@ -1,6 +1,7 @@
 # bmsleep
 iOS之睡眠以及唤醒特定线程
 
+```objc
 - (void)test1{
 dispatch_async(dispatch_get_global_queue(0, 0), ^{
 NSLog(@"one start");
@@ -22,3 +23,18 @@ NSLog(@"main start");
 [BMSleep wakeUpForName:@"one"];
 NSLog(@"main end");
 }
+```
+
+```objc
+2019-01-16 10:45:41.300956+0800 BMSleepDemo[15217:591951] main start
+2019-01-16 10:45:41.300965+0800 BMSleepDemo[15217:592077] one start
+2019-01-16 10:45:41.300979+0800 BMSleepDemo[15217:592079] two start
+2019-01-16 10:45:42.301109+0800 BMSleepDemo[15217:592078] (
+two,
+main,
+one
+)
+2019-01-16 10:45:43.302255+0800 BMSleepDemo[15217:592079] two end
+2019-01-16 10:45:45.303452+0800 BMSleepDemo[15217:591951] main end
+2019-01-16 10:45:45.303500+0800 BMSleepDemo[15217:592077] one end
+```
