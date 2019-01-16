@@ -1,4 +1,4 @@
-# bmsleep
+# BMSleep
 iOS之睡眠以及唤醒特定线程
 
 ```objc
