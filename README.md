@@ -2,7 +2,6 @@
 iOS之睡眠以及唤醒特定线程
 
 ```objc
-- (void)test1{
 dispatch_async(dispatch_get_global_queue(0, 0), ^{
 NSLog(@"one start");
 [BMSleep sleepForName:@"one"];
@@ -22,7 +21,6 @@ NSLog(@"main start");
 [BMSleep sleepForName:@"main" timeInterval:2];
 [BMSleep wakeUpForName:@"one"];
 NSLog(@"main end");
-}
 ```
 
 ```objc
